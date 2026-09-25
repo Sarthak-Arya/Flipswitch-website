@@ -1,25 +1,26 @@
 import type { PropsWithChildren } from 'react';
+import { SiteFooter } from '../Components/SiteFooter';
 import { SiteHeader } from '../Components/SiteHeader';
-import { useLenis } from '../hooks/useLenis';
 import { useScrollReveal } from '../hooks/useScrollReveal';
+import { useScrollSmoother } from '../hooks/useScrollSmoother';
 
 type MarketingLayoutProps = PropsWithChildren<{
     hideHeader?: boolean;
 }>;
 
 export function MarketingLayout({ children, hideHeader = false }: MarketingLayoutProps) {
-    useLenis();
+    useScrollSmoother();
     useScrollReveal();
 
     return (
-        <div className="app-shell">
-            {hideHeader ? null : <SiteHeader />}
+        <div id="smooth-wrapper" className="app-shell">
+            <div id="smooth-content">
+                {hideHeader ? null : <SiteHeader />}
 
-            <main>{children}</main>
+                <main>{children}</main>
 
-            <footer className="site-footer">
-                <p>Flip the Switch to What's Next.</p>
-            </footer>
+                <SiteFooter />
+            </div>
         </div>
     );
 }

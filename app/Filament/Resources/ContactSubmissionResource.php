@@ -24,6 +24,7 @@ class ContactSubmissionResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('name')->searchable()->sortable(),
                 Tables\Columns\TextColumn::make('email')->searchable(),
+                Tables\Columns\TextColumn::make('phone')->searchable()->placeholder('Not provided'),
                 Tables\Columns\TextColumn::make('company')->searchable()->placeholder('Not provided'),
                 Tables\Columns\TextColumn::make('created_at')->dateTime()->sortable(),
             ])
@@ -45,6 +46,7 @@ class ContactSubmissionResource extends Resource
             ->schema([
                 TextEntry::make('name'),
                 TextEntry::make('email'),
+                TextEntry::make('phone')->placeholder('Not provided'),
                 TextEntry::make('company')->placeholder('Not provided'),
                 TextEntry::make('message')->columnSpanFull(),
                 TextEntry::make('source')->placeholder('Not provided'),

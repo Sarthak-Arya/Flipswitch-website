@@ -9,6 +9,7 @@ class ContactSubmission extends Model
     protected $fillable = [
         'name',
         'email',
+        'phone',
         'company',
         'message',
         'source',

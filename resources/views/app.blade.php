@@ -8,6 +8,8 @@
         <title inertia>{{ config('app.name', 'FlipSwitch') }}</title>
 
         <link rel="stylesheet" href="https://use.typekit.net/ivy5pbv.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500&family=Onest:wght@300;400&display=swap">
 
         @routes
         @viteReactRefresh
