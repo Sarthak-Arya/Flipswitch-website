@@ -8264,12 +8264,58 @@ button.plan__cta {
     box-shadow: 0 0 6px var(--circuit-glow);
 }
 
+/* Top-right actions: blue forward control + Book a call. */
+.hdr__actions {
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+    justify-self: end;
+}
+
+/* Compact FlipSwitch forward button (brand electric blue). */
+.hdr a.hdr__forward {
+    display: inline-grid;
+    place-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-pill);
+    background: var(--brand-electric-blue);
+    color: #fff;
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 1;
+    text-decoration: none;
+    transition:
+        background-color 0.3s,
+        box-shadow 0.3s;
+}
+
+.hdr a.hdr__forward span {
+    display: block;
+    transition: transform 0.3s var(--ease-out);
+}
+
+.hdr a.hdr__forward:hover,
+.hdr a.hdr__forward:focus-visible {
+    background: var(--brand-deep-blue);
+    box-shadow: 0 8px 22px rgba(19, 86, 201, 0.28);
+}
+
+.hdr a.hdr__forward:hover span,
+.hdr a.hdr__forward:focus-visible span {
+    transform: translateX(2px);
+}
+
+.hdr a.hdr__forward:focus-visible {
+    outline: 2px solid var(--circuit-current);
+    outline-offset: 2px;
+}
+
 /* The call, with a switch that flips on when hovered. */
 .hdr a.hdr__cta {
     display: inline-flex;
     gap: 10px;
     align-items: center;
-    justify-self: end;
     height: 40px;
     padding: 0 18px 0 8px;
     border-radius: var(--radius-pill);
@@ -8360,11 +8406,16 @@ button.plan__cta {
     font-size: 16px;
 }
 
-.hdr .hdr__bar--compact a.hdr__cta {
+.hdr .hdr__bar--compact a.hdr__cta,
+.hdr .hdr__bar--compact a.hdr__forward {
     height: 38px;
 }
 
-/* Phones: the logo and a menu button. */
+.hdr .hdr__bar--compact a.hdr__forward {
+    width: 38px;
+}
+
+/* Phones: logo, action pair, and menu button. */
 @media (max-width: 900px) {
     .hdr {
         width: calc(100% - 32px);
@@ -8372,12 +8423,43 @@ button.plan__cta {
     }
 
     .hdr__bar {
-        grid-template-columns: 1fr auto;
+        grid-template-columns: minmax(0, 1fr) auto auto;
+        gap: 10px;
     }
 
-    .hdr__nav,
-    .hdr a.hdr__cta {
+    .hdr__nav {
         display: none;
+    }
+
+    .hdr__actions {
+        gap: 6px;
+    }
+
+    .hdr a.hdr__forward {
+        width: 42px;
+        height: 42px;
+        flex-shrink: 0;
+    }
+
+    .hdr a.hdr__cta {
+        height: 42px;
+        padding: 0 14px 0 6px;
+        font-size: 13px;
+    }
+
+    .hdr__cta-switch {
+        width: 28px;
+        height: 22px;
+    }
+
+    .hdr__cta-switch span {
+        width: 14px;
+        height: 14px;
+    }
+
+    .hdr a.hdr__cta:hover .hdr__cta-switch span,
+    .hdr a.hdr__cta:focus-visible .hdr__cta-switch span {
+        transform: translateX(6px);
     }
 
     .hdr__menu {
@@ -8391,6 +8473,7 @@ button.plan__cta {
         border-radius: 50%;
         background: rgba(255, 255, 255, 0.7);
         cursor: pointer;
+        flex-shrink: 0;
     }
 
     .hdr__menu span {
@@ -8409,6 +8492,23 @@ button.plan__cta {
     .hdr--float {
         width: calc(100% - 24px);
         padding: 6px 6px 6px 14px;
+    }
+}
+
+/* Narrow phones: keep the action pair + menu without clipping. */
+@media (max-width: 480px) {
+    .hdr__logo span {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+    }
+
+    .hdr a.hdr__cta {
+        padding: 0 12px 0 6px;
+        font-size: 12px;
     }
 }
 
@@ -8539,7 +8639,8 @@ button.plan__cta {
     .hdr--float,
     .hdr-menu,
     .hdr-menu.is-open,
-    .hdr__cta-switch span {
+    .hdr__cta-switch span,
+    .hdr a.hdr__forward span {
         transition: none;
     }
 }
