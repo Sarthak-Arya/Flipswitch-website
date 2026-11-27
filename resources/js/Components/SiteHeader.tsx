@@ -38,8 +38,8 @@ export function BrandMark() {
 
 // The header: the logo, the links in a slim capsule, and the call actions.
 // The capsule works like a switch track: a white knob slides behind whichever
-// link is hovered and rests on the current page. Next to Book a call sits a
-// compact blue forward control; the call button carries a small switch that
+// link is hovered and rests on the current page. Book a call sits left of the
+// blue FlipSwitch Forward pill; the call button carries a small switch that
 // flips on when hovered.
 //
 // It sits at the top of the page; once the visitor has scrolled a way down,
@@ -163,14 +163,14 @@ function HeaderBar({ onMenu, compact = false, tabbable = true }: HeaderBarProps)
             </nav>
 
             <div className="hdr__actions">
-                <Link href="/contact" className="hdr__forward" aria-label="What's next" tabIndex={tabIndex}>
-                    <span aria-hidden="true">→</span>
-                </Link>
                 <Link href="/contact" className="hdr__cta" tabIndex={tabIndex}>
                     <span className="hdr__cta-switch" aria-hidden="true">
                         <span />
                     </span>
                     Book a call
+                </Link>
+                <Link href="/contact" className="hdr__forward" tabIndex={tabIndex}>
+                    FlipSwitch Forward
                 </Link>
             </div>
 
