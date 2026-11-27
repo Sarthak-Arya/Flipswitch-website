@@ -28,6 +28,7 @@ export const FOOTER_GROUPS: { id: string; designator: string; title: string; lin
         title: 'Company',
         links: [
             { label: 'About', href: '/about' },
+            { label: 'AI automation', href: '/ai-automation' },
             { label: 'FlipSwitched work', href: '/work' },
             { label: 'Contact', href: '/contact' },
         ],

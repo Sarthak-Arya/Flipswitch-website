@@ -60,6 +60,11 @@ class MarketingPageController extends Controller
         ]);
     }
 
+    public function automation(): Response
+    {
+        return Inertia::render('Automation');
+    }
+
     private function serviceCatalog(): array
     {
         return [

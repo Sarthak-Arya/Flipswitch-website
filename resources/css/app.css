@@ -9206,3 +9206,151 @@ button.plan__cta {
         animation: none;
     }
 }
+
+/* ─── AI automation guide ─────────────────────────────────── */
+
+.guide {
+    --adv-font-display: "Geist", sans-serif;
+    --adv-font-body: "Onest", sans-serif;
+    font-family: var(--adv-font-body);
+    letter-spacing: normal;
+    color: #141414;
+}
+
+.guide__hero,
+.guide__close {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.guide__hero {
+    padding: 40px 24px 80px;
+}
+
+.guide__hero .advisory__display {
+    max-width: 14ch;
+}
+
+.guide__hero .advisory__intro-copy,
+.guide__close .advisory__intro-copy {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.guide__contents {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 18px;
+    margin-top: 36px;
+}
+
+.guide__contents a {
+    font-size: 14px;
+    color: #444;
+    transition: color 0.2s;
+}
+
+.guide__contents a:hover,
+.guide__contents a:focus-visible {
+    color: var(--circuit-current);
+}
+
+.guide__circuit {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 100%;
+    overflow: visible;
+    pointer-events: none;
+}
+
+.guide__hero,
+.guide__section,
+.guide__close {
+    position: relative;
+    z-index: 1;
+}
+
+.guide .advisory__tag span {
+    color: var(--circuit-current);
+}
+
+.guide .advisory__card {
+    transition:
+        border-color 0.3s,
+        box-shadow 0.3s;
+}
+
+.guide .advisory__card-title {
+    transition: color 0.2s;
+}
+
+.guide .advisory__card:hover,
+.guide .advisory__card:focus-within {
+    border-color: var(--circuit-current);
+    box-shadow: 0 0 0 4px rgba(19, 86, 201, 0.07), 0 12px 32px rgba(19, 86, 201, 0.14);
+}
+
+.guide .advisory__card:hover .advisory__card-title,
+.guide .advisory__card:focus-within .advisory__card-title {
+    color: var(--circuit-current);
+}
+
+.guide__tap .circuit__stub {
+    transition: stroke-width 0.25s;
+}
+
+.guide__tap.is-hot .circuit__stub {
+    stroke-width: 2.5;
+    filter: drop-shadow(0 0 6px rgba(19, 86, 201, 0.9));
+}
+
+.guide__tap.is-hot .circuit__node {
+    filter: drop-shadow(0 0 8px rgba(19, 86, 201, 1));
+}
+
+.guide .advisory__btn:hover,
+.guide .advisory__btn:focus-visible {
+    background: var(--brand-deep-blue);
+    box-shadow: 0 8px 22px rgba(19, 86, 201, 0.28);
+}
+
+.guide__section,
+.guide__close {
+    width: min(100% - 80px, 1120px);
+    margin: 0 auto;
+}
+
+.guide__section {
+    padding: 120px 0 40px;
+}
+
+.guide__lead {
+    max-width: 440px;
+    margin-top: 18px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #666;
+    font-weight: 300;
+    text-wrap: pretty;
+}
+
+.guide .advisory__cards {
+    padding: 48px 0 0;
+}
+
+.guide__close {
+    width: 100%;
+    padding: 130px 24px 110px;
+}
+
+@media (max-width: 760px) {
+    .guide__section {
+        width: calc(100% - 32px);
+        padding-top: 72px;
+    }
+}
