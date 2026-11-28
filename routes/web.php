@@ -13,6 +13,7 @@ Route::get('/services/{slug}', [MarketingPageController::class, 'service'])->nam
 Route::get('/work', [MarketingPageController::class, 'work'])->name('work.index');
 
 Route::get('/ai-automation', [MarketingPageController::class, 'automation'])->name('automation');
+Route::get('/forward', [MarketingPageController::class, 'forward'])->name('forward');
 
 Route::get('/contact', [ContactSubmissionController::class, 'create'])->name('contact.create');
 Route::post('/contact', [ContactSubmissionController::class, 'store'])

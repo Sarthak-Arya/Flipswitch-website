@@ -65,6 +65,11 @@ class MarketingPageController extends Controller
         return Inertia::render('Automation');
     }
 
+    public function forward(): Response
+    {
+        return Inertia::render('Forward');
+    }
+
     private function serviceCatalog(): array
     {
         return [

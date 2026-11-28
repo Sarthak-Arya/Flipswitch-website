@@ -169,7 +169,7 @@ function HeaderBar({ onMenu, compact = false, tabbable = true }: HeaderBarProps)
                     </span>
                     Book a call
                 </Link>
-                <Link href="/contact" className="hdr__forward" tabIndex={tabIndex}>
+                <Link href="/forward" className="hdr__forward" tabIndex={tabIndex}>
                     FlipSwitch Forward
                 </Link>
             </div>
@@ -264,6 +264,9 @@ function MobileMenu({ open, onClose }: { open: boolean; onClose: () => void }) {
             <div className="hdr-menu__foot">
                 <Link href="/contact" className="hdr-menu__cta" tabIndex={open ? undefined : -1}>
                     Book a call <span aria-hidden="true">→</span>
+                </Link>
+                <Link href="/forward" className="hdr-menu__forward" tabIndex={open ? undefined : -1}>
+                    FlipSwitch Forward
                 </Link>
                 <p>One conversation. A clear next step.</p>
             </div>

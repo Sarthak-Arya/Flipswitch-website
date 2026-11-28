@@ -8624,6 +8624,21 @@ button.plan__cta {
     box-shadow: 0 10px 28px var(--circuit-glow);
 }
 
+.hdr-menu a.hdr-menu__forward {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 48px;
+    margin-top: 10px;
+    border-radius: 14px;
+    border: 1px solid color-mix(in srgb, var(--brand-electric-blue) 35%, transparent);
+    background: color-mix(in srgb, var(--brand-ice-blue) 18%, #ffffff);
+    color: var(--brand-deep-blue);
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+}
+
 .hdr-menu__foot p {
     margin: 12px 0 0;
     font-size: 13px;
@@ -9352,5 +9367,470 @@ button.plan__cta {
     .guide__section {
         width: calc(100% - 32px);
         padding-top: 72px;
+    }
+}
+
+
+/* ─── FlipSwitch Forward offers ───────────────────────────── */
+
+.fwd {
+    --fwd-ink: #141414;
+    --fwd-muted: #666666;
+    --fwd-soft: #f4f6fb;
+    --fwd-line: color-mix(in srgb, var(--brand-navy) 12%, transparent);
+    --fwd-radius: 28px;
+    font-family: var(--font-onest);
+    color: var(--fwd-ink);
+    background:
+        radial-gradient(ellipse 70% 45% at 12% -8%, color-mix(in srgb, var(--brand-ice-blue) 42%, transparent), transparent 60%),
+        radial-gradient(ellipse 55% 40% at 92% 8%, color-mix(in srgb, var(--brand-sky-blue) 18%, transparent), transparent 55%),
+        linear-gradient(180deg, #f8f9fc 0%, #ffffff 42%, #f5f7fb 100%);
+}
+
+.fwd__hero {
+    width: min(100% - 48px, 980px);
+    margin: 0 auto;
+    padding: 56px 0 48px;
+    text-align: left;
+}
+
+.fwd__context {
+    margin: 0 0 18px;
+    font-family: var(--font-geist);
+    font-size: 13px;
+    letter-spacing: 0.02em;
+    color: var(--fwd-muted);
+}
+
+.fwd__title {
+    margin: 0;
+    max-width: 16ch;
+    font-family: var(--font-hero-display);
+    font-size: clamp(40px, 6.4vw, 68px);
+    font-weight: 400;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    color: var(--fwd-ink);
+    text-wrap: balance;
+}
+
+.fwd__title em {
+    font-style: italic;
+    color: var(--brand-electric-blue);
+}
+
+.fwd__lead {
+    margin: 22px 0 0;
+    max-width: 42ch;
+    font-size: 17px;
+    line-height: 1.55;
+    font-weight: 300;
+    color: var(--fwd-muted);
+    text-wrap: pretty;
+}
+
+.fwd__hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 32px;
+}
+
+.fwd__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 46px;
+    padding: 0 22px;
+    border-radius: var(--radius-pill);
+    font-family: var(--font-geist);
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    text-decoration: none;
+    transition:
+        background-color 0.25s var(--ease-out),
+        color 0.25s var(--ease-out),
+        border-color 0.25s var(--ease-out),
+        box-shadow 0.25s var(--ease-out),
+        transform 0.25s var(--ease-out);
+}
+
+.fwd__btn:hover,
+.fwd__btn:focus-visible {
+    transform: translateY(-1px);
+}
+
+.fwd__btn:focus-visible {
+    outline: 2px solid var(--circuit-current);
+    outline-offset: 3px;
+}
+
+.fwd__btn--primary {
+    background: var(--brand-electric-blue);
+    color: #fff;
+}
+
+.fwd__btn--primary:hover,
+.fwd__btn--primary:focus-visible {
+    background: var(--brand-deep-blue);
+    box-shadow: 0 10px 24px rgba(19, 86, 201, 0.28);
+}
+
+.fwd__btn--ghost {
+    background: #fff;
+    color: var(--fwd-ink);
+    border: 1px solid color-mix(in srgb, var(--brand-navy) 18%, transparent);
+}
+
+.fwd__btn--ghost:hover,
+.fwd__btn--ghost:focus-visible {
+    border-color: var(--brand-electric-blue);
+    color: var(--brand-deep-blue);
+}
+
+.fwd__btn--accent {
+    background: var(--brand-electric-blue);
+    color: #fff;
+    margin-top: 8px;
+}
+
+.fwd__btn--accent:hover,
+.fwd__btn--accent:focus-visible {
+    background: var(--brand-sky-blue);
+    color: var(--brand-void);
+}
+
+.fwd__btn--dark {
+    background: #141414;
+    color: #fff;
+    margin-top: 8px;
+}
+
+.fwd__btn--dark:hover,
+.fwd__btn--dark:focus-visible {
+    background: var(--brand-void);
+    box-shadow: 0 10px 24px rgba(1, 4, 16, 0.22);
+}
+
+.fwd__offers {
+    width: min(100% - 48px, 1120px);
+    margin: 0 auto;
+    padding: 12px 0 72px;
+}
+
+.fwd__tabs {
+    display: inline-flex;
+    gap: 4px;
+    padding: 5px;
+    margin-bottom: 28px;
+    border-radius: var(--radius-pill);
+    background: color-mix(in srgb, var(--brand-ice-blue) 22%, #ffffff);
+    border: 1px solid var(--fwd-line);
+}
+
+.fwd__tab {
+    appearance: none;
+    border: 0;
+    cursor: pointer;
+    min-height: 40px;
+    padding: 0 18px;
+    border-radius: var(--radius-pill);
+    background: transparent;
+    color: var(--fwd-muted);
+    font-family: var(--font-geist);
+    font-size: 14px;
+    font-weight: 500;
+    transition:
+        background-color 0.25s var(--ease-out),
+        color 0.25s var(--ease-out),
+        box-shadow 0.25s var(--ease-out);
+}
+
+.fwd__tab.is-active {
+    background: #fff;
+    color: var(--fwd-ink);
+    box-shadow: 0 6px 18px rgba(5, 24, 72, 0.08);
+}
+
+.fwd__tab:focus-visible {
+    outline: 2px solid var(--circuit-current);
+    outline-offset: 2px;
+}
+
+.fwd__panel {
+    min-height: 320px;
+}
+
+.fwd__tracks {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+    gap: 22px;
+    align-items: start;
+}
+
+.fwd__track {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    min-height: 100%;
+}
+
+.fwd__track-label {
+    margin: 0 0 2px;
+    font-family: var(--font-geist);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--brand-electric-blue);
+}
+
+.fwd__track--diy .fwd__track-label {
+    color: var(--fwd-muted);
+}
+
+.fwd__offer {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 28px 28px 30px;
+    border-radius: var(--fwd-radius);
+}
+
+.fwd__offer--audit {
+    background:
+        linear-gradient(160deg, color-mix(in srgb, var(--brand-navy) 88%, #000) 0%, var(--brand-void) 100%);
+    color: #fff;
+    box-shadow: 0 18px 40px rgba(1, 4, 16, 0.22);
+}
+
+.fwd__offer--cardglance {
+    background: #fff;
+    border: 1px solid var(--fwd-line);
+    box-shadow: 0 14px 36px rgba(5, 24, 72, 0.06);
+}
+
+.fwd__offer-title {
+    margin: 0;
+    font-family: var(--font-hero-display);
+    font-size: clamp(26px, 3.2vw, 34px);
+    font-weight: 400;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+}
+
+.fwd__offer--audit .fwd__offer-title {
+    color: #fff;
+}
+
+.fwd__offer-sub {
+    margin: 4px 0 0;
+    font-family: var(--font-geist);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.35;
+}
+
+.fwd__offer--audit .fwd__offer-sub {
+    color: var(--brand-ice-blue);
+}
+
+.fwd__offer-copy {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.55;
+    font-weight: 300;
+    text-wrap: pretty;
+}
+
+.fwd__offer--audit .fwd__offer-copy {
+    color: color-mix(in srgb, #ffffff 78%, var(--brand-ice-blue));
+}
+
+.fwd__offer--cardglance .fwd__offer-copy {
+    color: var(--fwd-muted);
+}
+
+.fwd__features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin: 2px 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.fwd__features li {
+    padding: 10px 12px;
+    border-radius: 999px;
+    background: var(--fwd-soft);
+    font-family: var(--font-geist);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--fwd-ink);
+    text-align: center;
+}
+
+.fwd__price {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 10px 12px;
+    margin-top: 4px;
+}
+
+.fwd__price-now {
+    font-family: var(--font-geist);
+    font-size: 34px;
+    font-weight: 500;
+    letter-spacing: -0.03em;
+    line-height: 1;
+}
+
+.fwd__offer--audit .fwd__price-now {
+    color: #fff;
+}
+
+.fwd__price-was {
+    font-size: 16px;
+    color: var(--fwd-muted);
+}
+
+.fwd__offer--audit .fwd__price-was {
+    color: color-mix(in srgb, #ffffff 55%, transparent);
+}
+
+.fwd__price-was s {
+    text-decoration-thickness: 1.5px;
+}
+
+.fwd__price-note {
+    flex-basis: 100%;
+    font-size: 13px;
+    color: var(--fwd-muted);
+}
+
+.fwd__offer--audit .fwd__price-note {
+    color: color-mix(in srgb, #ffffff 58%, transparent);
+}
+
+.fwd__track--diy {
+    min-height: 100%;
+}
+
+.fwd__empty,
+.fwd__resources {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    min-height: 280px;
+    padding: 32px 28px;
+    border-radius: var(--fwd-radius);
+    border: 1px dashed color-mix(in srgb, var(--brand-navy) 22%, transparent);
+    background: color-mix(in srgb, var(--brand-ice-blue) 10%, #ffffff);
+}
+
+.fwd__resources {
+    min-height: 240px;
+    max-width: 560px;
+}
+
+.fwd__empty-title {
+    margin: 0;
+    font-family: var(--font-hero-display);
+    font-size: 28px;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    color: var(--fwd-ink);
+}
+
+.fwd__empty-copy {
+    margin: 0;
+    max-width: 34ch;
+    font-size: 15px;
+    line-height: 1.55;
+    font-weight: 300;
+    color: var(--fwd-muted);
+    text-wrap: pretty;
+}
+
+.fwd__close {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    padding: 88px 24px 110px;
+    text-align: center;
+    background:
+        radial-gradient(ellipse 60% 80% at 50% 120%, color-mix(in srgb, var(--brand-deep-blue) 55%, transparent), transparent 70%),
+        linear-gradient(180deg, #050d24 0%, var(--brand-void) 100%);
+    color: #fff;
+}
+
+.fwd__close-title {
+    margin: 0;
+    max-width: 16ch;
+    font-family: var(--font-hero-display);
+    font-size: clamp(32px, 5vw, 48px);
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+}
+
+.fwd__close-copy {
+    margin: 0;
+    max-width: 36ch;
+    font-size: 16px;
+    line-height: 1.5;
+    font-weight: 300;
+    color: color-mix(in srgb, #ffffff 72%, var(--brand-ice-blue));
+}
+
+@media (max-width: 860px) {
+    .fwd__tracks {
+        grid-template-columns: 1fr;
+    }
+
+    .fwd__features {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .fwd__hero,
+    .fwd__offers {
+        width: calc(100% - 32px);
+    }
+
+    .fwd__hero {
+        padding-top: 36px;
+    }
+
+    .fwd__offer,
+    .fwd__empty,
+    .fwd__resources {
+        padding: 24px 20px;
+    }
+
+    .fwd__tabs {
+        width: 100%;
+    }
+
+    .fwd__tab {
+        flex: 1;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .fwd__btn,
+    .fwd__tab {
+        transition: none;
+    }
+
+    .fwd__btn:hover,
+    .fwd__btn:focus-visible {
+        transform: none;
     }
 }
