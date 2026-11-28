@@ -9539,14 +9539,21 @@ button.plan__cta {
     border-color: #fff;
 }
 
-.fwd__tabs {
-    display: inline-flex;
+.fwd__switcher {
+    display: flex;
     gap: 2px;
-    margin-top: 36px;
+    width: fit-content;
+    margin: 20px auto 0;
     padding: 4px;
     border-radius: var(--radius-pill);
     background: #fff;
     border: 1px solid var(--adv-line);
+    position: relative;
+    z-index: 3;
+}
+
+.fwd--resources .fwd__switcher {
+    margin: 24px auto 8px;
 }
 
 .fwd__tab {
@@ -9574,6 +9581,10 @@ button.plan__cta {
 .fwd__tab:focus-visible {
     outline: 2px solid var(--circuit-current);
     outline-offset: 2px;
+}
+
+.fwd__resources-panel {
+    position: relative;
 }
 
 .fwd__offers {
@@ -9770,23 +9781,6 @@ button.plan__cta {
     text-wrap: pretty;
 }
 
-.fwd__resources {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    max-width: 520px;
-    min-height: 280px;
-    padding: 36px 32px;
-    border-radius: var(--fwd-card-radius);
-    background: #fff;
-    border: 1px solid var(--adv-line);
-    box-shadow: 0 12px 32px rgba(5, 24, 72, 0.05);
-}
-
-.fwd__resources .advisory__tag {
-    margin-bottom: 4px;
-}
-
 .fwd__close {
     display: flex;
     flex-direction: column;
@@ -9834,8 +9828,7 @@ button.plan__cta {
         padding-top: 32px;
     }
 
-    .fwd__card,
-    .fwd__resources {
+    .fwd__card {
         padding: 24px 20px;
     }
 
@@ -9843,8 +9836,10 @@ button.plan__cta {
         grid-template-columns: 1fr;
     }
 
-    .fwd__tabs {
-        width: 100%;
+    .fwd__switcher {
+        width: calc(100% - 32px);
+        margin-left: 16px;
+        margin-right: 16px;
     }
 
     .fwd__tab {
