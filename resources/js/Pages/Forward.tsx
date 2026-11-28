@@ -1,5 +1,6 @@
 import { Head, Link } from '@inertiajs/react';
 import { useEffect, useId, useState } from 'react';
+import { SiteHeader } from '../Components/SiteHeader';
 import { MarketingLayout } from '../Layouts/MarketingLayout';
 import { gsap } from '../lib/gsap';
 import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion';
@@ -25,8 +26,9 @@ function useForwardMotion(tab: ForwardTab) {
 
         const ctx = gsap.context(() => {
             gsap.timeline({ defaults: { ease: 'power3.out' } })
-                .from('.hdr', { autoAlpha: 0, y: -12, duration: 0.7 }, 0.1)
-                .from('.fwd__hero > *', { autoAlpha: 0, y: 28, duration: 0.85, stagger: 0.08 }, 0.2);
+                .from('.fwd__banner', { autoAlpha: 0, y: -8, duration: 0.5 }, 0)
+                .from('.hdr', { autoAlpha: 0, y: -12, duration: 0.7 }, 0.08)
+                .from('.fwd__hero > *', { autoAlpha: 0, y: 28, duration: 0.85, stagger: 0.08 }, 0.18);
         }, root);
 
         return () => ctx.revert();
@@ -40,9 +42,9 @@ function useForwardMotion(tab: ForwardTab) {
         }
 
         const tween = gsap.fromTo(
-            panel.querySelectorAll(':scope > *'),
-            { autoAlpha: 0, y: 18 },
-            { autoAlpha: 1, y: 0, duration: 0.55, stagger: 0.06, ease: 'power3.out' },
+            panel.querySelectorAll('.fwd__card, .fwd__resources'),
+            { autoAlpha: 0, y: 20 },
+            { autoAlpha: 1, y: 0, duration: 0.55, stagger: 0.08, ease: 'power3.out' },
         );
 
         return () => {
@@ -60,33 +62,37 @@ export default function Forward() {
     useForwardMotion(tab);
 
     return (
-        <MarketingLayout>
+        <MarketingLayout hideHeader>
             <Head title="FlipSwitch Forward" />
 
-            <article className="fwd">
+            <article className="fwd advisory">
+                <a href="/contact" className="fwd__banner">
+                    Free 45-min AI Business Audit + 20% off your first automation.{' '}
+                    <span>Claim it</span>
+                </a>
+                <SiteHeader />
+
                 <header className="fwd__hero">
-                    <p className="fwd__context">FlipSwitch Forward · offers for the room</p>
+                    <p className="fwd__context">Offer for event attendees · valid for a limited time</p>
                     <h1 className="fwd__title">
                         Don&apos;t just take AI home as knowledge.
                         <br />
                         Take it back as <em>implementation</em>.
                     </h1>
                     <p className="fwd__lead">
-                        We don&apos;t sell automation for the sake of it. We start by understanding your business.
-                        Pick the track that fits you.
+                        We don&apos;t sell automation for the sake of it. We start by understanding your
+                        business. Pick the track that fits you.
                     </p>
 
                     <div className="fwd__hero-actions" role="group" aria-label="Primary actions">
                         <Link href="/contact" className="fwd__btn fwd__btn--primary">
                             Book Free Audit
                         </Link>
-                        <a href="#offers" className="fwd__btn fwd__btn--ghost" onClick={() => setTab('implementation')}>
-                            See offers
+                        <a href="#card-glance" className="fwd__btn fwd__btn--ghost">
+                            Get Card Glance
                         </a>
                     </div>
-                </header>
 
-                <section id="offers" className="fwd__offers" aria-label="FlipSwitch Forward offers">
                     <div className="fwd__tabs" role="tablist" aria-label="Offer tracks">
                         <button
                             type="button"
@@ -113,7 +119,9 @@ export default function Forward() {
                             Resources
                         </button>
                     </div>
+                </header>
 
+                <section id="offers" className="fwd__offers" aria-label="FlipSwitch Forward offers">
                     {tab === 'implementation' ? (
                         <div
                             className="fwd__panel"
@@ -121,20 +129,22 @@ export default function Forward() {
                             id={implementationId}
                             aria-labelledby={`${tabsId}-tab-implementation`}
                         >
-                            <div className="fwd__tracks">
-                                <div className="fwd__track fwd__track--done">
-                                    <p className="fwd__track-label">Done for you</p>
+                            <div className="fwd__grid">
+                                <article className="fwd__card fwd__card--done">
+                                    <p className="fwd__card-label">Done for you</p>
 
-                                    <article className="fwd__offer fwd__offer--audit">
-                                        <h2 className="fwd__offer-title">Free 45-minute AI Business Audit</h2>
-                                        <p className="fwd__offer-copy">
-                                            We sit with you, understand how your business currently operates, and map
-                                            where AI can give time back — without generic recommendations.
+                                    <div className="fwd__block">
+                                        <h2 className="fwd__card-title">Free 45-minute AI Business Audit</h2>
+                                        <p className="fwd__card-copy">
+                                            We sit with you, understand how your business currently operates, and
+                                            map where AI creates real leverage. No generic recommendations.
                                         </p>
-                                        <h3 className="fwd__offer-sub">Then, a clear next step for your first automation</h3>
-                                        <p className="fwd__offer-copy">
-                                            Managing your team, automating follow-ups, or tightening a handoff — we
-                                            name what to build first, and what should stay with a person.
+                                        <h3 className="fwd__card-sub">
+                                            Then, 20% off your first automation project
+                                        </h3>
+                                        <p className="fwd__card-copy">
+                                            Managing your team, automating follow-ups, or tightening a handoff —
+                                            we implement it at 20% off.
                                         </p>
                                         <div className="fwd__price">
                                             <span className="fwd__price-now">₹0</span>
@@ -143,16 +153,16 @@ export default function Forward() {
                                             </span>
                                             <span className="fwd__price-note">45-minute session</span>
                                         </div>
-                                        <Link href="/contact" className="fwd__btn fwd__btn--accent">
+                                        <Link href="/contact" className="fwd__btn fwd__btn--on-dark">
                                             Book my free audit
                                         </Link>
-                                    </article>
+                                    </div>
 
-                                    <article className="fwd__offer fwd__offer--cardglance">
-                                        <h2 className="fwd__offer-title">Card Glance</h2>
-                                        <p className="fwd__offer-copy">
-                                            Swap visiting cards at networking events without the pile of paper. Scan,
-                                            capture, and keep the follow-up moving after the room clears.
+                                    <div id="card-glance" className="fwd__block fwd__block--glance">
+                                        <h2 className="fwd__card-title fwd__card-title--sm">Card Glance</h2>
+                                        <p className="fwd__card-copy">
+                                            Swap visiting cards at networking events without the pile of paper.
+                                            Scan, capture, and keep the follow-up moving after the room clears.
                                         </p>
                                         <ul className="fwd__features">
                                             {CARD_GLANCE_FEATURES.map((feature) => (
@@ -164,24 +174,25 @@ export default function Forward() {
                                             <span className="fwd__price-was">
                                                 <s>₹3,500</s>
                                             </span>
-                                            <span className="fwd__price-note">Special price for everyone at the event</span>
+                                            <span className="fwd__price-note">
+                                                Special price for everyone at the event
+                                            </span>
                                         </div>
-                                        <Link href="/contact" className="fwd__btn fwd__btn--dark">
+                                        <Link href="/contact" className="fwd__btn fwd__btn--ghost-on-dark">
                                             Get Card Glance
                                         </Link>
-                                    </article>
-                                </div>
+                                    </div>
+                                </article>
 
-                                <div className="fwd__track fwd__track--diy" aria-label="Do it yourself">
-                                    <p className="fwd__track-label">Do it yourself</p>
-                                    <div className="fwd__empty">
-                                        <p className="fwd__empty-title">Coming soon</p>
-                                        <p className="fwd__empty-copy">
-                                            Self-serve tools for this track are not published yet. Switch stays open —
-                                            content will land here.
+                                <article className="fwd__card fwd__card--diy" aria-label="Do it yourself">
+                                    <p className="fwd__card-label">Do it yourself</p>
+                                    <div className="fwd__diy-empty">
+                                        <p className="fwd__diy-empty-title">Coming soon</p>
+                                        <p className="fwd__diy-empty-copy">
+                                            Self-serve tools for this track will land here. The slot stays open.
                                         </p>
                                     </div>
-                                </div>
+                                </article>
                             </div>
                         </div>
                     ) : (
@@ -192,10 +203,13 @@ export default function Forward() {
                             aria-labelledby={`${tabsId}-tab-resources`}
                         >
                             <div className="fwd__resources">
-                                <p className="fwd__empty-title">Resources</p>
-                                <p className="fwd__empty-copy">
-                                    Workshop documents and guides for running this work inside a company will be added
-                                    here. This section is intentionally empty until those are ready.
+                                <div className="advisory__tag">
+                                    <span>[</span>RESOURCES<span>]</span>
+                                </div>
+                                <p className="fwd__diy-empty-title">Not published yet</p>
+                                <p className="fwd__diy-empty-copy">
+                                    Workshop documents and guides for running this work inside a company will be
+                                    added here.
                                 </p>
                             </div>
                         </div>
